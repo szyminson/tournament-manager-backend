@@ -1,0 +1,38 @@
+{
+	"name": "Django back-end dev",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "django",
+	"workspaceFolder": "/project",
+	"settings": {
+		"python.linting.pylintEnabled": true,
+		"python.linting.enabled": true,
+		"python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+		"python.formatting.provider": "autopep8",
+		"python.pythonPath": "/usr/local/bin/python",
+		"launch": {
+			"version": "0.2.0",
+			"configurations": [
+				{
+					"name": "Python: Flask",
+					"type": "python",
+					"request": "launch",
+					"module": "flask",
+					"env": {
+						"FLASK_APP": "app",
+						"FLASK_ENV": "development"
+					},
+					"args": [
+						"run",
+						"--no-debugger"
+					],
+					"jinja": true
+				}
+			]
+		}
+	},
+	"extensions": ["ms-python.python", "patbenatar.advanced-new-file"],
+	"shutdownAction": "stopCompose",
+	"remoteUser": "dev"
+}
