@@ -8,31 +8,35 @@
 	"settings": {
 		"python.linting.pylintEnabled": true,
 		"python.linting.enabled": true,
-		"python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+		"python.linting.pylintArgs": [
+			"--load-plugins",
+			"pylint_django",
+			"--disable=django-not-configured",
+			"--django-settings-module=tournament_manager.settings",
+		],
 		"python.formatting.provider": "autopep8",
 		"python.pythonPath": "/usr/local/bin/python",
 		"launch": {
 			"version": "0.2.0",
 			"configurations": [
 				{
-					"name": "Python: Flask",
+					"name": "Python: Django",
 					"type": "python",
 					"request": "launch",
-					"module": "flask",
-					"env": {
-						"FLASK_APP": "app",
-						"FLASK_ENV": "development"
-					},
+					"program": "${workspaceFolder}/manage.py",
 					"args": [
-						"run",
-						"--no-debugger"
+						"runserver"
 					],
-					"jinja": true
+					"django": true,
+					"justMyCode": true
 				}
 			]
 		}
 	},
-	"extensions": ["ms-python.python", "patbenatar.advanced-new-file"],
+	"extensions": [
+		"ms-python.python",
+		"patbenatar.advanced-new-file"
+	],
 	"shutdownAction": "stopCompose",
 	"remoteUser": "dev"
 }
