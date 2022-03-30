@@ -1,0 +1,42 @@
+{
+	"name": "Django back-end dev",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "django",
+	"workspaceFolder": "/project",
+	"settings": {
+		"python.linting.pylintEnabled": true,
+		"python.linting.enabled": true,
+		"python.linting.pylintArgs": [
+			"--load-plugins",
+			"pylint_django",
+			"--disable=django-not-configured",
+			"--django-settings-module=tournament_manager.settings",
+		],
+		"python.formatting.provider": "autopep8",
+		"python.pythonPath": "/usr/local/bin/python",
+		"launch": {
+			"version": "0.2.0",
+			"configurations": [
+				{
+					"name": "Python: Django",
+					"type": "python",
+					"request": "launch",
+					"program": "${workspaceFolder}/manage.py",
+					"args": [
+						"runserver"
+					],
+					"django": true,
+					"justMyCode": true
+				}
+			]
+		}
+	},
+	"extensions": [
+		"ms-python.python",
+		"patbenatar.advanced-new-file"
+	],
+	"shutdownAction": "stopCompose",
+	"remoteUser": "dev"
+}
