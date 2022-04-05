@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 # Test view. Can be deleted when necessary
 @api_view(['GET'])
 def getData(request):
-    person={'name':'Jan', 'last name':'Kowalski', 'age':'23'}
+    person={'name':'Admin', 'number':'1'}
     return Response(person)
 
 # Create your views here.
