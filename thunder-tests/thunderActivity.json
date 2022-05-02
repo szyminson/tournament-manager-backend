@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "_id": "2d3fc50b-8003-410b-a313-db0d5214b7ed",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:8000/api/categories/",
+    "url": "http://127.0.0.1:8000/api/categories/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-05-02T20:20:31.586Z",
+    "modified": "2022-05-02T20:23:35.955Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category_name",
+          "value": "a"
+        },
+        {
+          "name": "description",
+          "value": "a"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "715d7b78-5f18-4126-9a78-d6a12cfca082",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:8000/api/categories/dddd",
+    "url": "http://127.0.0.1:8000/api/categories/dddd",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-05-02T20:20:41.274Z",
+    "modified": "2022-05-02T20:20:41.294Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category_name",
+          "value": "1"
+        },
+        {
+          "name": "description",
+          "value": "1"
+        }
+      ]
+    },
+    "tests": []
+  }
+]

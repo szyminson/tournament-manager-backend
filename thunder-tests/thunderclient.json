@@ -92,5 +92,408 @@
     "created": "2022-05-02T15:50:11.091Z",
     "modified": "2022-05-02T15:50:11.091Z",
     "headers": []
+  },
+  {
+    "_id": "60e1c053-885f-4e0b-8320-2bd1368033c4",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
+    "name": "list",
+    "url": "{{baseUrl}}/tournaments",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T19:55:34.143Z",
+    "modified": "2022-05-02T19:55:52.250Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5d905725-95ac-4e86-83a0-fa3c8d043dc2",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
+    "name": "create",
+    "url": "{{baseUrl}}/clubs/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T19:55:34.144Z",
+    "modified": "2022-05-02T19:55:34.143Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "club_name",
+          "value": "Seven Heaven"
+        },
+        {
+          "name": "club_ceo",
+          "value": "Andrzej"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "5b5000bc-cf70-4c9a-b9cf-50f400bafc37",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
+    "name": "read",
+    "url": "{{baseUrl}}/clubs/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T19:55:34.145Z",
+    "modified": "2022-05-02T19:55:34.143Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "64df7a0f-ea40-41d2-9722-2370ba3b40a9",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T19:55:34.146Z",
+    "modified": "2022-05-02T19:55:34.143Z",
+    "headers": []
+  },
+  {
+    "_id": "b59def53-8d60-439b-8ea8-460308a7197f",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T19:55:34.147Z",
+    "modified": "2022-05-02T19:55:34.143Z",
+    "headers": []
+  },
+  {
+    "_id": "c200e38a-7fd6-4412-8020-bc4964c9063b",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
+    "name": "list",
+    "url": "{{baseUrl}}/categories",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T20:00:42.453Z",
+    "modified": "2022-05-02T20:01:08.463Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c86bdd96-6098-4733-a7fa-fc68d0b2a323",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
+    "name": "create",
+    "url": "{{baseUrl}}/categories/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T20:00:42.454Z",
+    "modified": "2022-05-02T20:06:51.594Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category_name",
+          "value": "siema"
+        },
+        {
+          "name": "description",
+          "value": "test"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "073288fd-2372-4c00-9df7-044699f3ad30",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
+    "name": "read",
+    "url": "{{baseUrl}}/category/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T20:00:42.455Z",
+    "modified": "2022-05-02T20:01:16.177Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "965fa998-560b-418b-9114-8fde35c2d297",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T20:00:42.456Z",
+    "modified": "2022-05-02T20:00:42.453Z",
+    "headers": []
+  },
+  {
+    "_id": "f40814af-279d-48f9-bc7f-9f97dde29e3d",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T20:00:42.457Z",
+    "modified": "2022-05-02T20:00:42.453Z",
+    "headers": []
+  },
+  {
+    "_id": "f5aba4db-9fa1-4709-9dee-0e525159f289",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
+    "name": "list",
+    "url": "{{baseUrl}}/trees",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T20:01:24.166Z",
+    "modified": "2022-05-02T20:01:50.623Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bb11ac11-c5fb-415d-a52e-f040fe629be3",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
+    "name": "create",
+    "url": "{{baseUrl}}/trees/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T20:01:24.167Z",
+    "modified": "2022-05-02T20:02:54.279Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category",
+          "value": "1"
+        },
+        {
+          "name": "root_duel",
+          "value": "1"
+        },
+        {
+          "name": "tournament",
+          "value": "1"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "c56149b2-ce31-453e-bcdf-ad7f7844f587",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
+    "name": "read",
+    "url": "{{baseUrl}}/trees/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T20:01:24.168Z",
+    "modified": "2022-05-02T20:01:59.298Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "806b204a-e774-4546-9829-a4d70d145f30",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T20:01:24.169Z",
+    "modified": "2022-05-02T20:01:24.166Z",
+    "headers": []
+  },
+  {
+    "_id": "28bcad93-e94d-41f3-8267-7a7f9d05ca2f",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T20:01:24.170Z",
+    "modified": "2022-05-02T20:01:24.166Z",
+    "headers": []
+  },
+  {
+    "_id": "de89d38c-03cf-480e-b743-0f5a785943bc",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "1ea716de-7c8e-4beb-a329-d2ea9ac50cd3",
+    "name": "list",
+    "url": "{{baseUrl}}/users",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T20:26:58.422Z",
+    "modified": "2022-05-02T20:29:54.612Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9a2a9e66-35b9-4619-85bb-f80b0132ba0d",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "1ea716de-7c8e-4beb-a329-d2ea9ac50cd3",
+    "name": "create",
+    "url": "{{baseUrl}}/users/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T20:26:58.423Z",
+    "modified": "2022-05-02T20:29:34.848Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "username",
+          "value": "a"
+        },
+        {
+          "name": "email",
+          "value": "n"
+        },
+        {
+          "name": "hashed_password",
+          "value": "d"
+        },
+        {
+          "name": "user_type",
+          "value": "A"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "40cba10a-0d49-4dcf-a2f7-56673f693af6",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "1ea716de-7c8e-4beb-a329-d2ea9ac50cd3",
+    "name": "read",
+    "url": "{{baseUrl}}/users/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T20:26:58.424Z",
+    "modified": "2022-05-02T20:29:52.869Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7b51b8c6-581e-4d83-8e3d-7732d48736e0",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "1ea716de-7c8e-4beb-a329-d2ea9ac50cd3",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T20:26:58.425Z",
+    "modified": "2022-05-02T20:26:58.422Z",
+    "headers": []
+  },
+  {
+    "_id": "8184a431-1862-480f-9c60-d65eba93754a",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "1ea716de-7c8e-4beb-a329-d2ea9ac50cd3",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T20:26:58.426Z",
+    "modified": "2022-05-02T20:26:58.422Z",
+    "headers": []
+  },
+  {
+    "_id": "f247c3e9-89e6-4547-a37e-36ea7a31d720",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "list",
+    "url": "{{baseUrl}}/verificationcodes",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T20:30:14.336Z",
+    "modified": "2022-05-02T20:30:57.171Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "a7ad31be-19fa-4047-968c-95b3789dd900",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "create",
+    "url": "{{baseUrl}}/verificationcodes/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T20:30:14.337Z",
+    "modified": "2022-05-02T20:50:03.956Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"code\": \"a\",\n  \"participants_limit\": 1,\n  \"club\":  { \"club_name\": \"Seven Heaven\", \"club_ceo\": \"Andrzej\" }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a85ce082-f5e5-40dc-b708-65ab7482e0c4",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "read",
+    "url": "{{baseUrl}}/verificationcodes/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T20:30:14.338Z",
+    "modified": "2022-05-02T20:31:08.094Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d654f016-acf1-4552-bb27-7c85f2c61e53",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T20:30:14.339Z",
+    "modified": "2022-05-02T20:30:14.336Z",
+    "headers": []
+  },
+  {
+    "_id": "d6e2d9d5-15c9-4774-8573-0b1f2931d124",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T20:30:14.340Z",
+    "modified": "2022-05-02T20:30:14.336Z",
+    "headers": []
   }
 ]
