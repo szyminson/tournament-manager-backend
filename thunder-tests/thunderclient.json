@@ -1,0 +1,96 @@
+[
+  {
+    "_id": "8d2867f7-5527-498c-b519-1311386df4af",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "2401ce06-05d6-4f9e-8c0e-04888cf10be9",
+    "name": "list",
+    "url": "{{baseUrl}}/participants",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-05-02T13:58:08.672Z",
+    "modified": "2022-05-02T13:58:52.541Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7d75f019-6a3b-476f-8009-1c2379c4c7c0",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
+    "name": "list",
+    "url": "{{baseUrl}}/clubs",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-02T13:59:31.895Z",
+    "modified": "2022-05-02T15:49:38.291Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b8ccdba9-8e48-45fa-939a-bdceafc3cb7a",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
+    "name": "create",
+    "url": "{{baseUrl}}/clubs/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-02T14:00:36.720Z",
+    "modified": "2022-05-02T14:04:38.546Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "club_name",
+          "value": "Seven Heaven"
+        },
+        {
+          "name": "club_ceo",
+          "value": "Andrzej"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "4f371690-ab10-4d84-b801-924497e9b766",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
+    "name": "read",
+    "url": "{{baseUrl}}/clubs/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-02T15:49:55.184Z",
+    "modified": "2022-05-02T15:51:28.353Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "da482ae6-8cb0-4057-8c6f-8b62588419b8",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-02T15:50:00.816Z",
+    "modified": "2022-05-02T15:50:00.816Z",
+    "headers": []
+  },
+  {
+    "_id": "457fd1a9-3e09-4da6-8899-31fd94b20db4",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-02T15:50:11.091Z",
+    "modified": "2022-05-02T15:50:11.091Z",
+    "headers": []
+  }
+]

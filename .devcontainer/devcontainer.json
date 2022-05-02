@@ -6,6 +6,7 @@
 	"service": "django",
 	"workspaceFolder": "/project",
 	"settings": {
+		"thunder-client.saveToWorkspace": true,
 		"python.linting.pylintEnabled": true,
 		"python.linting.enabled": true,
 		"python.linting.pylintArgs": [
@@ -35,7 +36,8 @@
 	},
 	"extensions": [
 		"ms-python.python",
-		"patbenatar.advanced-new-file"
+		"patbenatar.advanced-new-file",
+		"rangav.vscode-thunder-client"
 	],
 	"shutdownAction": "stopCompose",
 	"remoteUser": "dev"

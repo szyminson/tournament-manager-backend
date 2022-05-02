@@ -7,6 +7,8 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.core import serializers
 
+from api.serializers import ClubSerializer
+
 #permission_classes = [permissions.AllowAny]
 
 ## Test view. Can be deleted when necessary
@@ -57,8 +59,9 @@ class ClubList(APIView):
     permission_classes=[permissions.AllowAny]
 
     def get(self, request, format=None):
-        clubs = serializers.serialize("json", Club.objects.all())
-        return Response(clubs)
+        clubs = Club.objects.all()
+        serializer = ClubSerializer(clubs, many=True)
+        return Response(serializer.data)
 
     # permission_classes=[permissions.IsAuthenticated]
 
@@ -72,6 +75,7 @@ class ClubDetail(APIView):
     permission_classes=[permissions.AllowAny]
 
     def get(self, request, pk, format=None):
-        club = serializers.serialize("json", [Club.objects.get(id = pk)])
-        return Response(club)
+        club = Club.objects.get(id = pk)
+        serializer = ClubSerializer(club)
+        return Response(serializer.data)
 

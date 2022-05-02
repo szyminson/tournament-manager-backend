@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "colName": "CRUD",
+    "created": "2022-05-02T13:57:27.640Z",
+    "sortNum": 30000,
+    "folders": [
+      {
+        "_id": "2401ce06-05d6-4f9e-8c0e-04888cf10be9",
+        "name": "participant",
+        "containerId": "",
+        "created": "2022-05-02T13:57:42.272Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "17cd7565-1682-452c-aa2b-59899fa02ece",
+        "name": "club",
+        "containerId": "",
+        "created": "2022-05-02T13:57:52.404Z",
+        "sortNum": 20000
+      }
+    ]
+  }
+]
