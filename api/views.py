@@ -2,12 +2,12 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
-from api.models import User, Participant, Club
+from api.models import User, Participant, Club, VerificationCode
 from rest_framework.views import APIView
 from rest_framework import status
 from django.core import serializers
 
-from api.serializers import ClubSerializer
+from api.serializers import ClubSerializer, VerificationCodeSerializer
 
 #permission_classes = [permissions.AllowAny]
 
@@ -63,13 +63,14 @@ class ClubList(APIView):
         serializer = ClubSerializer(clubs, many=True)
         return Response(serializer.data)
 
-    # permission_classes=[permissions.IsAuthenticated]
-
     def post(self, request, format=None):
-        # TODO validation / serializers?
-        club = Club(club_name = request.data['club_name'], club_ceo = request.data['club_ceo'])
-        club.save()
-        return Response(request.data, status=status.HTTP_201_CREATED)
+        serializer = ClubSerializer(request.data, many=True)
+        if serializer.is_valid():
+            club = Club(club_name = request.data['club_name'], club_ceo = request.data['club_ceo'])
+            club.save()
+            return Response(request.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
 class ClubDetail(APIView):
     permission_classes=[permissions.AllowAny]
@@ -79,3 +80,26 @@ class ClubDetail(APIView):
         serializer = ClubSerializer(club)
         return Response(serializer.data)
 
+class VerificationCodeList(APIView):
+    """
+    List all Verification Codes, or create a new Verification Code.
+    """
+    permission_classes=[permissions.AllowAny]
+
+    def get(self, request, format=None):
+        verification_code = VerificationCode.objects.all()
+        serializer = VerificationCodeSerializer(verification_code, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = VerificationCodeSerializer(request.data, many=True)
+        if serializer.is_valid():
+            verification_code = VerificationCode(
+                code = request.data['code'],
+                participants_limit = request.data['participants_limit'],
+                club = request.data['club']
+                )
+            verification_code.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
