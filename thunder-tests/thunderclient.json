@@ -1,19 +1,5 @@
 [
   {
-    "_id": "8d2867f7-5527-498c-b519-1311386df4af",
-    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
-    "containerId": "2401ce06-05d6-4f9e-8c0e-04888cf10be9",
-    "name": "list",
-    "url": "{{baseUrl}}/participants",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2022-05-02T13:58:08.672Z",
-    "modified": "2022-05-02T13:58:52.541Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "7d75f019-6a3b-476f-8009-1c2379c4c7c0",
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "17cd7565-1682-452c-aa2b-59899fa02ece",
@@ -196,7 +182,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:00:42.454Z",
-    "modified": "2022-05-02T20:06:51.594Z",
+    "modified": "2022-05-03T16:07:27.082Z",
     "headers": [],
     "params": [],
     "body": {
@@ -205,11 +191,11 @@
       "form": [
         {
           "name": "category_name",
-          "value": "siema"
+          "value": "Kategoria 3"
         },
         {
           "name": "description",
-          "value": "test"
+          "value": "To jest Kategoria 3"
         }
       ]
     },
@@ -220,11 +206,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "9c98e8ed-8862-4f64-9ec1-dd99776de22f",
     "name": "read",
-    "url": "{{baseUrl}}/category/1",
+    "url": "{{baseUrl}}/categories/1",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-05-02T20:00:42.455Z",
-    "modified": "2022-05-02T20:01:16.177Z",
+    "modified": "2022-05-03T16:29:27.997Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -448,13 +434,26 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:30:14.337Z",
-    "modified": "2022-05-02T20:50:03.956Z",
+    "modified": "2022-05-03T14:33:51.044Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"code\": \"a\",\n  \"participants_limit\": 1,\n  \"club\":  { \"club_name\": \"Seven Heaven\", \"club_ceo\": \"Andrzej\" }\n}",
-      "form": []
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "code",
+          "value": "a"
+        },
+        {
+          "name": "participants_limit",
+          "value": "2"
+        },
+        {
+          "name": "club",
+          "value": "4"
+        }
+      ]
     },
     "tests": []
   },
@@ -494,6 +493,182 @@
     "sortNum": 60000,
     "created": "2022-05-02T20:30:14.340Z",
     "modified": "2022-05-02T20:30:14.336Z",
+    "headers": []
+  },
+  {
+    "_id": "9d98f783-b0cf-44ea-a36a-6fc47fb9e1a5",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
+    "name": "list",
+    "url": "{{baseUrl}}/clubs",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-03T14:49:54.646Z",
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "761c865c-8ca4-414c-834c-868953971139",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
+    "name": "create",
+    "url": "{{baseUrl}}/clubs/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-03T14:49:54.647Z",
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "club_name",
+          "value": "Seven Heaven"
+        },
+        {
+          "name": "club_ceo",
+          "value": "Andrzej"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "9e00f204-dc8d-4492-a0c6-cb98e3c0a520",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
+    "name": "read",
+    "url": "{{baseUrl}}/clubs/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-03T14:49:54.648Z",
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c71fa1cf-06c5-4306-9669-92d7a703d66d",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-03T14:49:54.649Z",
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": []
+  },
+  {
+    "_id": "a5d703e5-f329-4f05-9a5f-fa3f93a72c55",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-03T14:49:54.650Z",
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": []
+  },
+  {
+    "_id": "f1db4929-21ac-428a-936a-eb65395aacb9",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
+    "name": "list",
+    "url": "{{baseUrl}}/clubs",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-05-03T14:51:32.986Z",
+    "modified": "2022-05-03T14:51:32.986Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "2feb4722-277d-4934-a3e2-93bf6ff994ac",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
+    "name": "create",
+    "url": "{{baseUrl}}/participants/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-05-03T14:51:32.987Z",
+    "modified": "2022-05-03T14:56:54.672Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "first_name",
+          "value": "Janusz"
+        },
+        {
+          "name": "last_name",
+          "value": "Biernat"
+        },
+        {
+          "name": "gender",
+          "value": "M"
+        },
+        {
+          "name": "date_of_birth",
+          "value": "11/11/1969"
+        },
+        {
+          "name": "club",
+          "value": "1"
+        },
+        {
+          "name": "verification_code",
+          "value": "1"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "60e01db7-8318-4dd0-b6d5-de582e38f89d",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
+    "name": "read",
+    "url": "{{baseUrl}}/clubs/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-05-03T14:51:32.988Z",
+    "modified": "2022-05-03T14:51:32.986Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bdfa8a28-2105-4c23-b437-e6178e548ed7",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
+    "name": "update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-05-03T14:51:32.989Z",
+    "modified": "2022-05-03T14:51:32.986Z",
+    "headers": []
+  },
+  {
+    "_id": "fd3c69e4-8c94-4fbf-9038-38cc4645d869",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
+    "name": "delete",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-05-03T14:51:32.990Z",
+    "modified": "2022-05-03T14:51:32.986Z",
     "headers": []
   }
 ]

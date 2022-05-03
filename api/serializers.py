@@ -11,7 +11,7 @@ class ClubSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Club
-        fields = ('club_name', 'club_ceo')
+        fields = ('id', 'club_name', 'club_ceo')
 
 class VerificationCodeSerializer(serializers.ModelSerializer):
     """
@@ -19,8 +19,8 @@ class VerificationCodeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = VerificationCode
-        fields = ('code', 'participants_limit', 'club')
-    
+        fields = ('id','code', 'participants_limit', 'club')
+
     def to_representation(self, instance):
         self.fields['club'] =  ClubSerializer(read_only=True)
         return super( VerificationCodeSerializer, self).to_representation(instance)
@@ -31,7 +31,7 @@ class DuelSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Duel
-        fields = ('participant_one', 'participant_two', 'parent_duel',
+        fields = ('id','participant_one', 'participant_two', 'parent_duel',
                   'winner', 'score_description')
 
 class UserSerializer(serializers.ModelSerializer):
@@ -40,7 +40,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = User
-        fields = ('username', 'email', 'hashed_password', 'user_type')
+        fields = ('id','username', 'email', 'hashed_password', 'user_type')
 
 class TournamentSerializer(serializers.ModelSerializer):
     """
@@ -48,7 +48,7 @@ class TournamentSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tournament
-        fields = ('time', 'date', 'location')
+        fields = ('id','time', 'date', 'location')
 
 class CategorySerializer(serializers.ModelSerializer):
     """
@@ -56,7 +56,7 @@ class CategorySerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Category
-        fields = ('category_name', 'description')
+        fields = ('id', 'category_name', 'description')
 
 
 class TreeSerializer(serializers.ModelSerializer):
@@ -65,7 +65,7 @@ class TreeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tree
-        fields = ('category', 'root_duel', 'tournament')
+        fields = ('id', 'category', 'root_duel', 'tournament')
 
 class ParticipantSerializer(serializers.ModelSerializer):
     """
@@ -73,4 +73,10 @@ class ParticipantSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Participant
-        fields = ('first_name', 'last_name', 'gender', 'date_of_birth', 'club', 'verification_code')
+        fields = ('id', 'first_name', 'last_name', 'gender', 'date_of_birth', 'club', 'verification_code')
+
+    def to_representation(self, instance):
+        self.fields['club'] =  ClubSerializer(read_only=True)
+        self.fields['verification_code'] = VerificationCodeSerializer(read_only=True)
+        return super( ParticipantSerializer, self).to_representation(instance)
+
