@@ -98,11 +98,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
     "name": "create",
-    "url": "{{baseUrl}}/clubs/",
+    "url": "{{baseUrl}}/tournaments/",
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T19:55:34.144Z",
-    "modified": "2022-05-02T19:55:34.143Z",
+    "modified": "2022-05-05T18:36:01.711Z",
     "headers": [],
     "params": [],
     "body": {
@@ -110,12 +110,28 @@
       "raw": "",
       "form": [
         {
-          "name": "club_name",
-          "value": "Seven Heaven"
+          "name": "name",
+          "value": "Karate Polish Open"
         },
         {
-          "name": "club_ceo",
-          "value": "Andrzej"
+          "name": "start_date",
+          "value": "2022-05-05 11:00"
+        },
+        {
+          "name": "end_date",
+          "value": "2022-05-06 14:00"
+        },
+        {
+          "name": "location",
+          "value": "Radosna 40, 01-494 Warszawa"
+        },
+        {
+          "name": "phone_number",
+          "value": "+48 285915385"
+        },
+        {
+          "name": "email",
+          "value": "zawodyKarate@gmail.com"
         }
       ]
     },
@@ -126,11 +142,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
     "name": "read",
-    "url": "{{baseUrl}}/clubs/1",
+    "url": "{{baseUrl}}/tournaments/1",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-05-02T19:55:34.145Z",
-    "modified": "2022-05-02T19:55:34.143Z",
+    "modified": "2022-05-05T18:36:33.966Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -670,5 +686,33 @@
     "created": "2022-05-03T14:51:32.990Z",
     "modified": "2022-05-03T14:51:32.986Z",
     "headers": []
+  },
+  {
+    "_id": "a6b2cf03-86d3-40d5-8073-df8cc6acdb6b",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "a6fe062c-d2b2-4a6a-bf4c-6df941fb9ce3",
+    "name": "token",
+    "url": "{{baseUrl}}/token/",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2022-05-05T16:12:03.933Z",
+    "modified": "2022-05-05T16:13:25.274Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "username",
+          "value": "admin1"
+        },
+        {
+          "name": "password",
+          "value": "ad1password"
+        }
+      ]
+    },
+    "tests": []
   }
 ]
