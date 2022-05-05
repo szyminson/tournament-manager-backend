@@ -11,8 +11,8 @@ class Category(models.Model):
     description = models.CharField(max_length=45)
 
 class Club(models.Model):
-    club_name = models.CharField(max_length=45)
-    club_ceo = models.CharField(max_length=45)
+    name = models.CharField(max_length=45)
+    ceo = models.CharField(max_length=45)
 
 class VerificationCode(models.Model):
     code = models.TextField()

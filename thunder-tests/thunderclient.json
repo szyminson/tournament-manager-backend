@@ -198,7 +198,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:00:42.454Z",
-    "modified": "2022-05-03T16:07:27.082Z",
+    "modified": "2022-05-05T19:35:42.698Z",
     "headers": [],
     "params": [],
     "body": {
@@ -206,12 +206,12 @@
       "raw": "",
       "form": [
         {
-          "name": "category_name",
-          "value": "Kategoria 3"
+          "name": "name",
+          "value": "Kategoria 4"
         },
         {
           "name": "description",
-          "value": "To jest Kategoria 3"
+          "value": "To jest Kategoria 4"
         }
       ]
     },

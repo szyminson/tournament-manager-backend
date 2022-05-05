@@ -11,7 +11,7 @@ class ClubSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Club
-        fields = ('id', 'club_name', 'club_ceo')
+        fields = ('id', 'name', 'ceo')
 
 class VerificationCodeSerializer(serializers.ModelSerializer):
     """
