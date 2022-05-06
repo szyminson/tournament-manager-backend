@@ -450,7 +450,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:30:14.337Z",
-    "modified": "2022-05-03T14:33:51.044Z",
+    "modified": "2022-05-05T23:27:25.210Z",
     "headers": [],
     "params": [],
     "body": {
@@ -459,11 +459,11 @@
       "form": [
         {
           "name": "code",
-          "value": "a"
+          "value": "123456"
         },
         {
           "name": "participants_limit",
-          "value": "2"
+          "value": "30"
         },
         {
           "name": "club",
@@ -596,11 +596,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
     "name": "list",
-    "url": "{{baseUrl}}/clubs",
+    "url": "{{baseUrl}}/participants/",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:51:32.986Z",
-    "modified": "2022-05-03T14:51:32.986Z",
+    "modified": "2022-05-05T23:52:09.870Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -614,7 +614,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-03T14:51:32.987Z",
-    "modified": "2022-05-03T14:56:54.672Z",
+    "modified": "2022-05-05T23:24:59.009Z",
     "headers": [],
     "params": [],
     "body": {
@@ -635,7 +635,7 @@
         },
         {
           "name": "date_of_birth",
-          "value": "11/11/1969"
+          "value": "2022-05-06"
         },
         {
           "name": "club",
@@ -643,6 +643,10 @@
         },
         {
           "name": "verification_code",
+          "value": "1"
+        },
+        {
+          "name": "category",
           "value": "1"
         }
       ]
