@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('duels/', views.DuelList.as_view()),
     path('duels/<int:pk>/', views.DuelDetail.as_view()),
-    
+
     path('categories/', views.CategoryList.as_view()),
     path('categories/<int:pk>/', views.CategoryDetail.as_view()),
 
@@ -25,7 +25,9 @@ urlpatterns = [
 
     path('participants/', views.ParticipantList.as_view()),
     path('participants/<int:pk>/', views.ParticipantDetail.as_view()),
-    
+
     path('users/', views.UserList.as_view()),
     path('users/<int:pk>/', views.UserDetail.as_view()),
+
+    path('verifycode/', views.verify_code)
 ]

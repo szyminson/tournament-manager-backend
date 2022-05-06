@@ -718,5 +718,29 @@
       ]
     },
     "tests": []
+  },
+  {
+    "_id": "7762a8b8-e9f6-4d7f-bce9-066094d90ee6",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "verify",
+    "url": "{{baseUrl}}/verifycode/",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2022-05-06T08:01:09.661Z",
+    "modified": "2022-05-06T08:04:56.985Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "code",
+          "value": "123456"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

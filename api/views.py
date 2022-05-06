@@ -4,6 +4,7 @@ TODO module docstring
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
 
 from api.models import Category, Tournament, Tree, User, Participant, Club, VerificationCode, Duel
 from api.serializers import (CategorySerializer, ClubSerializer,
@@ -13,13 +14,12 @@ from api.serializers import (CategorySerializer, ClubSerializer,
 )
 
 
-## ! Test view. Can be deleted when necessary
-#@api_view(['GET'])
-#@permission_classes([permissions.AllowAny])
-#def createUser(request):
-#    user = User(username="workata", email="cos@gmail.com", hashed_password="1234", user_type= User.UserType.ADMINISTRATOR)
-#    user.save()
-#    return Response(user)
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def verify_code(request):
+    verification_code = VerificationCode.objects.filter(code = request.data['code']).first()
+    serializer = VerificationCodeSerializer(verification_code)
+    return Response(serializer.data)
 
 class ParticipantList(APIView):
     """
