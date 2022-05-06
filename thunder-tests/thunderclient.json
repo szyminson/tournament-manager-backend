@@ -98,11 +98,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
     "name": "create",
-    "url": "{{baseUrl}}/clubs/",
+    "url": "{{baseUrl}}/tournaments/",
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T19:55:34.144Z",
-    "modified": "2022-05-02T19:55:34.143Z",
+    "modified": "2022-05-05T18:36:01.711Z",
     "headers": [],
     "params": [],
     "body": {
@@ -110,12 +110,28 @@
       "raw": "",
       "form": [
         {
-          "name": "club_name",
-          "value": "Seven Heaven"
+          "name": "name",
+          "value": "Karate Polish Open"
         },
         {
-          "name": "club_ceo",
-          "value": "Andrzej"
+          "name": "start_date",
+          "value": "2022-05-05 11:00"
+        },
+        {
+          "name": "end_date",
+          "value": "2022-05-06 14:00"
+        },
+        {
+          "name": "location",
+          "value": "Radosna 40, 01-494 Warszawa"
+        },
+        {
+          "name": "phone_number",
+          "value": "+48 285915385"
+        },
+        {
+          "name": "email",
+          "value": "zawodyKarate@gmail.com"
         }
       ]
     },
@@ -126,11 +142,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "69cfb267-8c65-4d1b-8b1e-d2309937ce1d",
     "name": "read",
-    "url": "{{baseUrl}}/clubs/1",
+    "url": "{{baseUrl}}/tournaments/1",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-05-02T19:55:34.145Z",
-    "modified": "2022-05-02T19:55:34.143Z",
+    "modified": "2022-05-05T18:36:33.966Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -182,7 +198,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:00:42.454Z",
-    "modified": "2022-05-03T16:07:27.082Z",
+    "modified": "2022-05-05T19:35:42.698Z",
     "headers": [],
     "params": [],
     "body": {
@@ -190,12 +206,12 @@
       "raw": "",
       "form": [
         {
-          "name": "category_name",
-          "value": "Kategoria 3"
+          "name": "name",
+          "value": "Kategoria 4"
         },
         {
           "name": "description",
-          "value": "To jest Kategoria 3"
+          "value": "To jest Kategoria 4"
         }
       ]
     },
@@ -434,7 +450,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-02T20:30:14.337Z",
-    "modified": "2022-05-03T14:33:51.044Z",
+    "modified": "2022-05-05T23:27:25.210Z",
     "headers": [],
     "params": [],
     "body": {
@@ -443,11 +459,11 @@
       "form": [
         {
           "name": "code",
-          "value": "a"
+          "value": "123456"
         },
         {
           "name": "participants_limit",
-          "value": "2"
+          "value": "30"
         },
         {
           "name": "club",
@@ -580,11 +596,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "7a5e2366-9c9a-48a1-b68c-bccceb5663f7",
     "name": "list",
-    "url": "{{baseUrl}}/clubs",
+    "url": "{{baseUrl}}/participants/",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:51:32.986Z",
-    "modified": "2022-05-03T14:51:32.986Z",
+    "modified": "2022-05-05T23:52:09.870Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -598,7 +614,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-05-03T14:51:32.987Z",
-    "modified": "2022-05-03T14:56:54.672Z",
+    "modified": "2022-05-05T23:24:59.009Z",
     "headers": [],
     "params": [],
     "body": {
@@ -619,7 +635,7 @@
         },
         {
           "name": "date_of_birth",
-          "value": "11/11/1969"
+          "value": "2022-05-06"
         },
         {
           "name": "club",
@@ -627,6 +643,10 @@
         },
         {
           "name": "verification_code",
+          "value": "1"
+        },
+        {
+          "name": "category",
           "value": "1"
         }
       ]
@@ -670,5 +690,57 @@
     "created": "2022-05-03T14:51:32.990Z",
     "modified": "2022-05-03T14:51:32.986Z",
     "headers": []
+  },
+  {
+    "_id": "a6b2cf03-86d3-40d5-8073-df8cc6acdb6b",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "a6fe062c-d2b2-4a6a-bf4c-6df941fb9ce3",
+    "name": "token",
+    "url": "{{baseUrl}}/token/",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2022-05-05T16:12:03.933Z",
+    "modified": "2022-05-05T16:13:25.274Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "username",
+          "value": "admin1"
+        },
+        {
+          "name": "password",
+          "value": "ad1password"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "7762a8b8-e9f6-4d7f-bce9-066094d90ee6",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "verify",
+    "url": "{{baseUrl}}/verifycode/",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2022-05-06T08:01:09.661Z",
+    "modified": "2022-05-06T08:04:56.985Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "code",
+          "value": "123456"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

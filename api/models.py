@@ -6,10 +6,13 @@ from django.db import models
 
 # Create your models here.
 
-class Club(models.Model):
-    club_name = models.CharField(max_length=45)
-    club_ceo = models.CharField(max_length=45)
+class Category(models.Model):
+    name = models.CharField(max_length=45)
+    description = models.CharField(max_length=45)
 
+class Club(models.Model):
+    name = models.CharField(max_length=45)
+    ceo = models.CharField(max_length=45)
 
 class VerificationCode(models.Model):
     code = models.TextField()
@@ -34,6 +37,7 @@ class Participant(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
     verification_code = models.ForeignKey(
         VerificationCode, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
 class Duel(models.Model):
@@ -63,14 +67,16 @@ class User(models.Model):
 
 
 class Tournament(models.Model):
-    time = models.TimeField()
-    date = models.DateField()
+    """
+    TODO docstring
+    ! dajngo DateTime format: YYYY-MM-DD HH:MM
+    """
+    name = models.CharField(max_length=45)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     location = models.CharField(max_length=120)
-
-
-class Category(models.Model):
-    category_name = models.CharField(max_length=45)
-    description = models.CharField(max_length=45)
+    phone_number = models.CharField(max_length=45)
+    email = models.CharField(max_length=45)
 
 
 class Tree(models.Model):
