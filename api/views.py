@@ -6,7 +6,6 @@ from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-import json
 
 from api.models import  (Category, Tournament,
                          Tree, Staff, Participant,
@@ -33,19 +32,22 @@ def divide(arr, depth, m):
 def create_tree(category):
     participants = Participant.objects.filter(category = category)
     number_of_participants = len(participants)
-    
+
     depth = 0
     divide(arr, depth, number_of_participants)
-    return Response(json.dumps(arr))
+    return arr
 
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+@permission_classes([permissions.AllowAny])
 def generate_trees(request):
     categories = Category.objects.all()
+
     for category in categories:
-        pass
-    return Response({'message': 'Trees'})    
+        tree_structure = create_tree(category)
+        tree = {"category_name": category.name, "tree_structure": tree_structure}
+        break
+    return Response(tree)
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
