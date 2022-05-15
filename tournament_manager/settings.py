@@ -33,6 +33,9 @@ SECRET_KEY = env('SECRET_KEY', default='gqpj&4@67s2jgrhe-8-ob5hmtc1ywjl81)%nmu*5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
+EMAIL_HOST = env('EMAIL_HOST', default='mailhog')
+EMAIL_PORT = env('EMIAL_PORT', default=1025)
+
 ALLOWED_HOSTS = ['*']
 
 

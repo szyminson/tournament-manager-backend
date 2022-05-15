@@ -1,6 +1,7 @@
 """
 TODO module docstring
 """
+from django.core.mail import send_mail
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -39,6 +40,18 @@ def me(request):
             'email': user.email,
             'type': staff.type
         })
+  
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def emailtest(request):
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'from@example.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+    return Response({'message': 'Test email sent.'})
 
 
 class ParticipantList(APIView):

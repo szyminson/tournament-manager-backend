@@ -12,6 +12,9 @@ services:
       - 8000:8000
     volumes:
       - .:/project
+    depends_on:
+      - db
+      - mailhog
     
   db:
     image: mysql
@@ -23,3 +26,9 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-userpass}
     ports:
       - 3306:3306
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 1025:1025
+      - 8025:8025
