@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('api', '0004_rename_club_ceo_club_ceo_rename_club_name_club_name'),
+        ('api', '0005_club_email_alter_verificationcode_code'),
     ]
 
     operations = [

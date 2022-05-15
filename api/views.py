@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 
 from api.models import  (Category, Tournament,
-                         Tree, User, Participant,
+                         Tree, Staff, Participant,
                          Club, VerificationCode,
                          Duel
                          )
@@ -44,7 +44,7 @@ def me(request):
             'email': user.email,
             'type': staff.type
         })
-  
+
 @api_view(['GET'])
 @permission_classes([permissions.AllowAny])
 def emailtest(request):
