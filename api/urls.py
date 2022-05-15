@@ -30,5 +30,6 @@ urlpatterns = [
     path('users/<int:pk>/', views.UserDetail.as_view()),
 
     path('verifycode/', views.verify_code),
-    path('emailtest/', views.emailtest)
+    path('emailtest/', views.emailtest),
+    path('sendcode/', views.send_verification_code)
 ]

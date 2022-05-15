@@ -1,26 +1,39 @@
 """
 TODO module docstring
 """
+import uuid
 from django.db import models
 
 
 # Create your models here.
 
 class Category(models.Model):
+    """
+    TODO docstring
+    """
     name = models.CharField(max_length=45)
     description = models.CharField(max_length=45)
 
 class Club(models.Model):
+    """
+    TODO docstring
+    """
     name = models.CharField(max_length=45)
     ceo = models.CharField(max_length=45)
+    email = models.CharField(max_length=45)
 
 class VerificationCode(models.Model):
-    code = models.TextField()
+    """
+    TODO docstring
+    """
+    code = models.TextField(default=uuid.uuid4().hex.upper()[0:6])
     participants_limit = models.IntegerField()
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
 
-
 class Participant(models.Model):
+    """
+    TODO docstring
+    """
     class Gender(models.TextChoices):
         NONE = 'N', 'None'
         MALE = 'M', 'Male'
