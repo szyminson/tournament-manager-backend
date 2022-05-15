@@ -6,6 +6,7 @@ from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
+import json
 
 from api.models import  (Category, Tournament,
                          Tree, Staff, Participant,
@@ -17,6 +18,34 @@ from api.serializers import (CategorySerializer, ClubSerializer,
                              VerificationCodeSerializer, DuelSerializer, ParticipantSerializer
                              )
 
+complements = []
+arr = [1, 2]
+
+def divide(arr, depth, m):
+    if len(complements) <= depth:
+        complements.append(2 ** (depth + 2) + 1)
+    complement = complements[depth]
+    for i in range(2):
+        if complement - arr[i] <= m:
+            arr[i] = [arr[i], complement - arr[i]]
+            divide(arr[i], depth + 1, m)
+
+def create_tree(category):
+    participants = Participant.objects.filter(category = category)
+    number_of_participants = len(participants)
+    
+    depth = 0
+    divide(arr, depth, number_of_participants)
+    return Response(json.dumps(arr))
+
+
+@api_view(['GET'])
+@permission_classes([permissions.IsAuthenticated])
+def generate_trees(request):
+    categories = Category.objects.all()
+    for category in categories:
+        pass
+    return Response({'message': 'Trees'})    
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
