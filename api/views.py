@@ -7,7 +7,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 
-from api.models import Category, Staff, Tournament, Tree, Participant, Club, VerificationCode, Duel
+from api.models import  (Category, Tournament,
+                         Tree, User, Participant,
+                         Club, VerificationCode,
+                         Duel
+                         )
 from api.serializers import (CategorySerializer, ClubSerializer,
                              TournamentSerializer, TreeSerializer,
                              VerificationCodeSerializer, DuelSerializer, ParticipantSerializer
@@ -44,6 +48,9 @@ def me(request):
 @api_view(['GET'])
 @permission_classes([permissions.AllowAny])
 def emailtest(request):
+    """
+    Test endpoint for emails
+    """
     send_mail(
         'Subject here',
         'Here is the message.',
@@ -52,6 +59,39 @@ def emailtest(request):
         fail_silently=False,
     )
     return Response({'message': 'Test email sent.'})
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def send_verification_code(request):
+    """
+    TODO docstring
+    """
+    tournament = Tournament.objects.get(id=1)
+    club_id = request.data['club_id']
+    print(f"Club id {club_id}")
+    club = Club.objects.get(pk=club_id)
+    print(f"Club {club}")
+    participants_limit = request.data['participants_limit']
+    verification_code = VerificationCode(
+        participants_limit = participants_limit, club = club)
+    verification_code.save()
+
+    subject = f"Invitation for {tournament.name} - {club.name}"
+    content = (
+     f"Dear {club.ceo}, \n\n  here is your verification code '{verification_code.code}'." +
+     f" You can add up to {verification_code.participants_limit} participants!"
+     f"\n\nBest Regards,\nOrganizers"
+     )
+
+    send_mail(
+        subject,
+        content,
+        tournament.email,
+        [club.email],
+        fail_silently=False,
+    )
+    return Response({'message': f'Email for {club.name} has been sent.'})
+
 
 
 class ParticipantList(APIView):

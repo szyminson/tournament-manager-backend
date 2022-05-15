@@ -29,5 +29,6 @@ urlpatterns = [
     path('me/', views.me)
 
     path('verifycode/', views.verify_code),
-    path('emailtest/', views.emailtest)
+    path('emailtest/', views.emailtest),
+    path('sendcode/', views.send_verification_code)
 ]
