@@ -5,11 +5,19 @@
     "default": true,
     "sortNum": 10000,
     "created": "2022-05-02T13:55:53.542Z",
-    "modified": "2022-05-02T13:56:03.091Z",
+    "modified": "2022-05-15T11:30:23.684Z",
     "data": [
       {
         "name": "baseUrl",
         "value": "http://127.0.0.1:8000/api"
+      },
+      {
+        "name": "accessToken",
+        "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNjE0ODIzLCJpYXQiOjE2NTI2MTQyMjMsImp0aSI6IjczZGI3MTdmNzI2ZTQ1MDJiNjI0OTQ0MGE2ZmM4OWE2IiwidXNlcl9pZCI6Mn0.-pPMWXMbPTBTvqI20OS8SfMachcK_fa_gEutu6ab4zY"
+      },
+      {
+        "name": "refreshToken",
+        "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MjcwMDYyMywiaWF0IjoxNjUyNjE0MjIzLCJqdGkiOiJlZjc0NmU0MmU3Y2I0MTI1OGU2MmRkNTQxMjg3YzQxZCIsInVzZXJfaWQiOjJ9.v6OOVYMQwloFWHFuHLft9CFm7Wjxqcj9Xad1apPf5wk"
       }
     ]
   }

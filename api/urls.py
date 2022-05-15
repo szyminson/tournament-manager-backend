@@ -26,8 +26,7 @@ urlpatterns = [
     path('participants/', views.ParticipantList.as_view()),
     path('participants/<int:pk>/', views.ParticipantDetail.as_view()),
 
-    path('users/', views.UserList.as_view()),
-    path('users/<int:pk>/', views.UserDetail.as_view()),
+    path('me/', views.me)
 
     path('verifycode/', views.verify_code),
     path('emailtest/', views.emailtest),
