@@ -1,10 +1,22 @@
 """
 TODO module docstring
 """
+from django.contrib.auth import get_user_model
 from django.db import models
 
-
 # Create your models here.
+
+class Staff(models.Model):
+    class UserType(models.TextChoices):
+        ADMINISTRATOR = 'A', 'Administrator'
+        MODERATOR = 'M', 'Moderator'
+
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    type = models.CharField(
+        max_length=1,
+        choices=UserType.choices,
+        default=UserType.MODERATOR
+    )
 
 class Category(models.Model):
     name = models.CharField(max_length=45)
@@ -51,7 +63,7 @@ class Duel(models.Model):
     score_description = models.TextField()
 
 
-class User(models.Model):
+""" class User(models.Model):
     class UserType(models.TextChoices):
         ADMINISTRATOR = 'A', 'Administrator'
         MODERATOR = 'M', 'Moderator'
@@ -63,7 +75,7 @@ class User(models.Model):
         max_length=1,
         choices=UserType.choices,
         default=UserType.MODERATOR
-    )
+    ) """
 
 
 class Tournament(models.Model):
