@@ -1,6 +1,7 @@
 """
 TODO module docstring
 """
+from django.core.mail import send_mail
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -8,24 +9,39 @@ from rest_framework.decorators import api_view, permission_classes
 
 from api.models import Category, Tournament, Tree, User, Participant, Club, VerificationCode, Duel
 from api.serializers import (CategorySerializer, ClubSerializer,
-    TournamentSerializer, TreeSerializer,
-    VerificationCodeSerializer, DuelSerializer,
-    UserSerializer, ParticipantSerializer
-)
+                             TournamentSerializer, TreeSerializer,
+                             VerificationCodeSerializer, DuelSerializer,
+                             UserSerializer, ParticipantSerializer
+                             )
 
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def verify_code(request):
-    verification_code = VerificationCode.objects.filter(code = request.data['code']).first()
+    verification_code = VerificationCode.objects.filter(
+        code=request.data['code']).first()
     serializer = VerificationCodeSerializer(verification_code)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def emailtest(request):
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'from@example.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+    return Response({'message': 'Test email sent.'})
+
 
 class ParticipantList(APIView):
     """
     List all Participants, or create a new Participant.
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -39,32 +55,34 @@ class ParticipantList(APIView):
         """
         TODO docstring
         """
-        serializer = ParticipantSerializer(data = request.data)
+        serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ParticipantDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        participant = Participant.objects.get(id = pk)
+        participant = Participant.objects.get(id=pk)
         serializer = ParticipantSerializer(participant)
         return Response(serializer.data)
+
 
 class ClubList(APIView):
     """
     List all Clubs, or create a new Club.
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -78,32 +96,34 @@ class ClubList(APIView):
         """
         TODO docstring
         """
-        serializer = ClubSerializer(data = request.data)
+        serializer = ClubSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ClubDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        club = Club.objects.get(id = pk)
+        club = Club.objects.get(id=pk)
         serializer = ClubSerializer(club)
         return Response(serializer.data)
+
 
 class VerificationCodeList(APIView):
     """
     List all Verification Codes, or create a new Verification Code.
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -117,32 +137,34 @@ class VerificationCodeList(APIView):
         """
         TODO docstring
         """
-        serializer = VerificationCodeSerializer(data = request.data)
+        serializer = VerificationCodeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class VerificationCodeDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        duel = VerificationCode.objects.get(id = pk)
+        duel = VerificationCode.objects.get(id=pk)
         serializer = VerificationCodeSerializer(duel)
         return Response(serializer.data)
+
 
 class DuelList(APIView):
     """
     List all Duels, or create a new Duel.
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -156,32 +178,34 @@ class DuelList(APIView):
         """
         TODO docstring
         """
-        serializer = DuelSerializer(data = request.data)
+        serializer = DuelSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class DuelDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        duel = Duel.objects.get(id = pk)
+        duel = Duel.objects.get(id=pk)
         serializer = DuelSerializer(duel)
         return Response(serializer.data)
+
 
 class TournamentList(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -195,24 +219,25 @@ class TournamentList(APIView):
         """
         TODO docstring
         """
-        serializer = TournamentSerializer(data = request.data)
+        serializer = TournamentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class TournamentDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        tournament = Tournament.objects.get(id = pk)
+        tournament = Tournament.objects.get(id=pk)
         serializer = TournamentSerializer(tournament)
         return Response(serializer.data)
 
@@ -221,7 +246,7 @@ class CategoryList(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -235,24 +260,25 @@ class CategoryList(APIView):
         """
         TODO docstring
         """
-        serializer = CategorySerializer(data = request.data)
+        serializer = CategorySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class CategoryDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        category = Category.objects.get(id = pk)
+        category = Category.objects.get(id=pk)
         serializer = CategorySerializer(category)
         return Response(serializer.data)
 
@@ -261,7 +287,7 @@ class TreeList(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -275,32 +301,34 @@ class TreeList(APIView):
         """
         TODO docstring
         """
-        serializer = TreeSerializer(data = request.data)
+        serializer = TreeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class TreeDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        tree = Tree.objects.get(id = pk)
+        tree = Tree.objects.get(id=pk)
         serializer = TreeSerializer(tree)
         return Response(serializer.data)
+
 
 class UserList(APIView):
     """
     List all User, or create a new User.
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         """
@@ -314,23 +342,24 @@ class UserList(APIView):
         """
         TODO docstring
         """
-        serializer = UserSerializer(data = request.data)
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(request.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
+
 class UserDetail(APIView):
     """
     TODO docstring
     """
-    permission_classes=[permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, pk, format=None):
         """
         TODO docstring
         """
-        user = User.objects.get(id = pk)
+        user = User.objects.get(id=pk)
         serializer = ClubSerializer(user)
         return Response(serializer.data)
