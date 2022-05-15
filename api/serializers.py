@@ -2,7 +2,7 @@
 Model serializer aggregating module
 """
 from rest_framework import serializers
-from api.models import Category, Club, Tournament, Tree, VerificationCode, Duel, User, Participant
+from api.models import Category, Club, Tournament, Tree, VerificationCode, Duel, Participant
 
 
 class ClubSerializer(serializers.ModelSerializer):
@@ -33,14 +33,6 @@ class DuelSerializer(serializers.ModelSerializer):
         model = Duel
         fields = ('id','participant_one', 'participant_two', 'parent_duel',
                   'winner', 'score_description')
-
-class UserSerializer(serializers.ModelSerializer):
-    """
-    User model serializer
-    """
-    class Meta:
-        model = User
-        fields = ('id','username', 'email', 'hashed_password', 'user_type')
 
 class TournamentSerializer(serializers.ModelSerializer):
     """

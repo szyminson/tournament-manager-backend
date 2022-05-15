@@ -68,6 +68,14 @@
         "created": "2022-05-05T16:11:50.822Z",
         "sortNum": 40000
       }
-    ]
+    ],
+    "settings": {
+      "headers": [],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{accessToken}}"
+      },
+      "tests": []
+    }
   }
 ]

@@ -700,7 +700,7 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-05-05T16:12:03.933Z",
-    "modified": "2022-05-05T16:13:25.274Z",
+    "modified": "2022-05-15T11:30:23.687Z",
     "headers": [],
     "params": [],
     "body": {
@@ -709,15 +709,28 @@
       "form": [
         {
           "name": "username",
-          "value": "admin1"
+          "value": "dev"
         },
         {
           "name": "password",
-          "value": "ad1password"
+          "value": "pwdpwd"
         }
       ]
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access",
+        "action": "setto",
+        "value": "{{accessToken}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.refresh",
+        "action": "setto",
+        "value": "{{refreshToken}}"
+      }
+    ]
   },
   {
     "_id": "7762a8b8-e9f6-4d7f-bce9-066094d90ee6",
@@ -741,6 +754,20 @@
         }
       ]
     },
+    "tests": []
+  },
+  {
+    "_id": "180a70b4-96bd-4fa5-b98a-56bc5240267f",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "a6fe062c-d2b2-4a6a-bf4c-6df941fb9ce3",
+    "name": "me",
+    "url": "{{baseUrl}}/me/",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2022-05-15T11:21:02.660Z",
+    "modified": "2022-05-15T11:21:30.087Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
