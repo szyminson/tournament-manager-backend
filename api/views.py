@@ -1,6 +1,7 @@
 """
 TODO module docstring
 """
+from venv import create
 from django.core.mail import send_mail
 from rest_framework import permissions, status
 from rest_framework.views import APIView
@@ -16,38 +17,21 @@ from api.serializers import (CategorySerializer, ClubSerializer,
                              TournamentSerializer, TreeSerializer,
                              VerificationCodeSerializer, DuelSerializer, ParticipantSerializer
                              )
-
-complements = []
-arr = [1, 2]
-
-def divide(arr, depth, m):
-    if len(complements) <= depth:
-        complements.append(2 ** (depth + 2) + 1)
-    complement = complements[depth]
-    for i in range(2):
-        if complement - arr[i] <= m:
-            arr[i] = [arr[i], complement - arr[i]]
-            divide(arr[i], depth + 1, m)
-
-def create_tree(category):
-    participants = Participant.objects.filter(category = category)
-    number_of_participants = len(participants)
-
-    depth = 0
-    divide(arr, depth, number_of_participants)
-    return arr
-
+from api.services import TreeGenerator
 
 @api_view(['GET'])
 @permission_classes([permissions.AllowAny])
 def generate_trees(request):
     categories = Category.objects.all()
+    tournament = Tournament.objects.first()
 
+    created_trees = []
     for category in categories:
-        tree_structure = create_tree(category)
-        tree = {"category_name": category.name, "tree_structure": tree_structure}
-        break
-    return Response(tree)
+        generator = TreeGenerator(category, tournament)
+        tree = generator.generate()
+        serializer = TreeSerializer(tree)
+        created_trees.append(serializer.data)
+    return Response(created_trees)
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])

@@ -67,12 +67,12 @@ class Participant(models.Model):
 
 class Duel(models.Model):
     participant_one = models.ForeignKey(
-        Participant, on_delete=models.CASCADE, related_name="participant_one")
+        Participant, on_delete=models.CASCADE, related_name="participant_one", default=None, blank=True, null=True)
     participant_two = models.ForeignKey(
-        Participant, on_delete=models.CASCADE, related_name="participant_two")
-    parent_duel = models.ForeignKey('self', on_delete=models.DO_NOTHING)
+        Participant, on_delete=models.CASCADE, related_name="participant_two", default=None, blank=True, null=True)
+    parent_duel = models.ForeignKey('self', on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
     winner = models.ForeignKey(
-        Participant, on_delete=models.CASCADE, related_name="weiner")
+        Participant, on_delete=models.CASCADE, related_name="weiner", default=None, blank=True, null=True)
     score_description = models.TextField()
 
 
