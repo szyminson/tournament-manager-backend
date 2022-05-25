@@ -1,6 +1,7 @@
 """
 TODO module docstring
 """
+from venv import create
 from django.core.mail import send_mail
 from rest_framework import permissions, status
 from rest_framework.views import APIView
@@ -16,7 +17,21 @@ from api.serializers import (CategorySerializer, ClubSerializer,
                              TournamentSerializer, TreeSerializer,
                              VerificationCodeSerializer, DuelSerializer, ParticipantSerializer
                              )
+from api.services import TreeGenerator
 
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def generate_trees(request):
+    categories = Category.objects.all()
+    tournament = Tournament.objects.first()
+
+    created_trees = []
+    for category in categories:
+        generator = TreeGenerator(category, tournament)
+        tree = generator.generate()
+        serializer = TreeSerializer(tree)
+        created_trees.append(serializer.data)
+    return Response(created_trees)
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
@@ -59,6 +74,31 @@ def emailtest(request):
         fail_silently=False,
     )
     return Response({'message': 'Test email sent.'})
+
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def get_codes_capacity(request):
+    """
+    Get verification codes capacity
+    """
+    # * get all verification codes
+    verification_codes = VerificationCode.objects.all()
+
+    codes_capacity = []
+
+    # * for each verification code - find number of signed participants
+    for verficiation_code in verification_codes:
+        signed_participants = len(Participant.objects.filter(
+            verification_code_id = verficiation_code.id).all())
+        club_name = verficiation_code.club.name
+        codes_capacity.append({
+            "id": verficiation_code.id,
+            "club": club_name,
+            "verification_code": verficiation_code.code,
+            "signed_participants": signed_participants,
+            "participants_limit": verficiation_code.participants_limit
+        })
+    return Response(codes_capacity)
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
