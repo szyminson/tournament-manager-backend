@@ -38,7 +38,13 @@ class VerificationCode(models.Model):
     """
     TODO docstring
     """
-    code = models.TextField(default=uuid.uuid4().hex.upper()[0:6])
+    def get_random_code() -> str:
+        """
+            Generate random code
+        """
+        return uuid.uuid4().hex.upper()[0:6]
+
+    code = models.TextField(default=get_random_code)
     participants_limit = models.IntegerField()
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
 
