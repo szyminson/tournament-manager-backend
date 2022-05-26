@@ -265,7 +265,7 @@ class DuelList(APIView):
         serializer = DuelSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(request.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
@@ -283,6 +283,15 @@ class DuelDetail(APIView):
         duel = Duel.objects.get(id=pk)
         serializer = DuelSerializer(duel)
         return Response(serializer.data)
+
+    def patch(self, request, pk):
+        duel = Duel.objects.get(id=pk)
+        serializer = DuelSerializer(duel, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TournamentList(APIView):

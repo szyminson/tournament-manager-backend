@@ -84,17 +84,22 @@ class TreeSerializer(serializers.ModelSerializer):
                     children.append(self.create_node_dict(duel.participant_two, []))
             for child in child_duels:
                 children.append(self.retrieve_duel_structure(child))
-        return self.create_node_dict(duel.winner, children)
+        return self.create_node_dict(duel.winner, children, duel.id)
 
     def create_node_name(self, participant):
         if not participant:
             return "TBA"
         return f"{participant.first_name} {participant.last_name}"
 
-    def create_node_dict(self, participant, children):
+    def create_node_dict(self, participant, children, duel_id = 0):
+        participant_id = 0
+        if participant:
+            participant_id = participant.id
         return {
             "name": self.create_node_name(participant),
-            "children": children
+            "duel_id": duel_id,
+            "participant_id": participant_id,
+            "children": children,
         }
 
 

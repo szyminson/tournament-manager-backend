@@ -184,12 +184,9 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:00:42.453Z",
-    "modified": "2022-05-25T22:42:14.273Z",
+    "modified": "2022-05-02T20:01:08.463Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "none"
-    },
     "tests": []
   },
   {
@@ -439,12 +436,9 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:30:14.336Z",
-    "modified": "2022-05-25T21:14:46.880Z",
+    "modified": "2022-05-02T20:30:57.171Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "none"
-    },
     "tests": []
   },
   {
@@ -522,16 +516,13 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
     "name": "list",
-    "url": "{{baseUrl}}/duels",
+    "url": "{{baseUrl}}/clubs",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:49:54.646Z",
-    "modified": "2022-05-26T10:11:32.023Z",
+    "modified": "2022-05-03T14:49:54.646Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "none"
-    },
     "tests": []
   },
   {
@@ -581,12 +572,24 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
     "name": "update",
-    "url": "",
-    "method": "GET",
+    "url": "{{baseUrl}}/duels/63/",
+    "method": "PATCH",
     "sortNum": 50000,
     "created": "2022-05-03T14:49:54.649Z",
-    "modified": "2022-05-03T14:49:54.646Z",
-    "headers": []
+    "modified": "2022-05-26T11:30:31.536Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "winner",
+          "value": "5"
+        }
+      ]
+    },
+    "tests": []
   },
   {
     "_id": "a5d703e5-f329-4f05-9a5f-fa3f93a72c55",
@@ -609,12 +612,9 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:51:32.986Z",
-    "modified": "2022-05-25T21:02:01.443Z",
+    "modified": "2022-05-05T23:52:09.870Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "none"
-    },
     "tests": []
   },
   {
@@ -794,50 +794,6 @@
     "modified": "2022-05-22T11:50:07.667Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "none"
-    },
-    "tests": []
-  },
-  {
-    "_id": "f8fb28c9-a1a2-4683-b0cb-32d639540c28",
-    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
-    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
-    "name": "code_capacity",
-    "url": "{{baseUrl}}/verificationcodescapacity/",
-    "method": "GET",
-    "sortNum": 110000,
-    "created": "2022-05-25T20:58:06.765Z",
-    "modified": "2022-05-25T20:58:44.334Z",
-    "headers": [],
-    "params": [],
-    "auth": {
-      "type": "none"
-    },
-    "tests": []
-  },
-  {
-    "_id": "c04fd77d-853a-4375-87b5-92704d5ff8c5",
-    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
-    "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
-    "name": "generate single tree",
-    "url": "{{baseUrl}}/generatetree/",
-    "method": "POST",
-    "sortNum": 110000,
-    "created": "2022-05-26T10:14:17.582Z",
-    "modified": "2022-05-26T10:18:49.739Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "formencoded",
-      "raw": "",
-      "form": [
-        {
-          "name": "category",
-          "value": "7"
-        }
-      ]
-    },
     "auth": {
       "type": "none"
     },
