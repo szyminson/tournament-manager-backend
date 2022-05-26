@@ -3,6 +3,7 @@ TODO module docstring
 """
 from venv import create
 from django.core.mail import send_mail
+from django.db.models import Q
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -43,6 +44,17 @@ def generate_tree(request):
     tree = generator.generate()
     serializer = TreeSerializer(tree)
 
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def get_tree_by_category(request, category_id, format=None):
+    """
+    TODO get tree based on given category id.
+    """
+    choosen_category = Category.objects.get(id=category_id)
+    tree = Tree.objects.filter(category = choosen_category).first()
+    serializer = TreeSerializer(tree)
     return Response(serializer.data)
 
 @api_view(['POST'])
@@ -111,6 +123,33 @@ def get_codes_capacity(request):
             "participants_limit": verficiation_code.participants_limit
         })
     return Response(codes_capacity)
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def set_duel_winner(request, participant_id, format=None):
+    # find all duels (duplicates) with participant id and update winner
+    duels = Duel.objects.filter(Q(participant_one = participant_id) | Q(participant_two = participant_id), winner = None).all()
+    winner_participant = Participant.objects.get(id=participant_id)
+
+    if not duels:
+        return Response({"msg": f"Participant {winner_participant.first_name} {winner_participant.last_name} CANNOT be move forward!"})
+
+    # normally this loop wouldnt be needed but I have a lot of duplicate duels in my DB
+    for duel in duels:
+        # * update current duel winner
+        duel.winner = winner_participant
+        duel.save()
+        if duel.parent_duel: # ! tree root is not a duel so check this condition
+            parent_duel = Duel.objects.get(id=duel.parent_duel.id)
+            # * update parent duel participant
+            if parent_duel.participant_one == None:
+                parent_duel.participant_one = winner_participant
+            elif parent_duel.participant_two == None:
+                parent_duel.participant_two = winner_participant
+            parent_duel.save()
+
+    return Response({"msg": f"Participant {winner_participant.first_name} {winner_participant.last_name} has been moved forward!"})
+
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
