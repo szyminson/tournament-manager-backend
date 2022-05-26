@@ -20,7 +20,7 @@ from api.serializers import (CategorySerializer, ClubSerializer,
                              )
 from api.services import TreeGenerator
 
-@api_view(['GET'])
+@api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def generate_trees(request):
     categories = Category.objects.all()
@@ -28,6 +28,10 @@ def generate_trees(request):
 
     created_trees = []
     for category in categories:
+        # ! only one tree  per category!
+        if len(Tree.objects.filter(category = category).all()) >= 1:
+            print(f"Tree for category '{category.name}' already exists!")
+            continue
         generator = TreeGenerator(category, tournament)
         tree = generator.generate()
         serializer = TreeSerializer(tree)
@@ -38,6 +42,10 @@ def generate_trees(request):
 @permission_classes([permissions.AllowAny])
 def generate_tree(request):
     category = Category.objects.get(id=request.data['category'])
+    # ! only one tree  per category!
+    if len(Tree.objects.filter(category = category).all()) >= 1:
+        return Response({"msg": f"Tree for category '{category.name}' already exists!"})
+
     tournament = Tournament.objects.first()
 
     generator = TreeGenerator(category, tournament)
@@ -56,6 +64,7 @@ def get_tree_by_category(request, category_id, format=None):
     tree = Tree.objects.filter(category = choosen_category).first()
     serializer = TreeSerializer(tree)
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
@@ -149,6 +158,18 @@ def set_duel_winner(request, participant_id, format=None):
             parent_duel.save()
 
     return Response({"msg": f"Participant {winner_participant.first_name} {winner_participant.last_name} has been moved forward!"})
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def remove_duel_winner(request, participant_id, format=None):
+    # TODO
+    pass
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def clear_all_winners(request, participant_id, format=None):
+    # TODO
+    pass
 
 
 @api_view(['POST'])

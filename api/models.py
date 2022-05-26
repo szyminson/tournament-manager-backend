@@ -38,11 +38,11 @@ class VerificationCode(models.Model):
     """
     TODO docstring
     """
-    def get_random_code() -> str:
+    def get_random_code(self, length = 6) -> str:
         """
             Generate random code
         """
-        return uuid.uuid4().hex.upper()[0:6]
+        return uuid.uuid4().hex.upper()[0:length]
 
     code = models.TextField(default=get_random_code)
     participants_limit = models.IntegerField()
