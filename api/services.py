@@ -1,13 +1,10 @@
 from api.models import Duel, Participant, Tree
 
 class TreeGenerator:
-    complements = []
-    arr = [1, 2]
-    participants = []
-    category = None
-    tournament = None
 
     def __init__(self, category, tournament):
+        self.complements = []
+        self.arr = [1, 2]
         self.category = category
         self.tournament = tournament
         self.participants = Participant.objects.filter(category = category)
@@ -23,6 +20,8 @@ class TreeGenerator:
     
     def generate(self):
         participant_number = len(self.participants)
+        if not participant_number:
+            return None
         self.divide(self.arr, 0, participant_number)
         participant_tree = self.indexes_to_participants(self.arr)
         return self.persist(participant_tree)
