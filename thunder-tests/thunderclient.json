@@ -184,9 +184,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:00:42.453Z",
-    "modified": "2022-05-02T20:01:08.463Z",
+    "modified": "2022-05-25T22:42:14.273Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -306,11 +309,11 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
     "name": "read",
-    "url": "{{baseUrl}}/trees/1",
+    "url": "{{baseUrl}}/trees/5",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-05-02T20:01:24.168Z",
-    "modified": "2022-05-02T20:01:59.298Z",
+    "modified": "2022-05-26T10:59:49.907Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -519,13 +522,16 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
     "name": "list",
-    "url": "{{baseUrl}}/clubs",
+    "url": "{{baseUrl}}/duels",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:49:54.646Z",
-    "modified": "2022-05-03T14:49:54.646Z",
+    "modified": "2022-05-26T10:11:32.023Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -805,6 +811,33 @@
     "modified": "2022-05-25T20:58:44.334Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  },
+  {
+    "_id": "c04fd77d-853a-4375-87b5-92704d5ff8c5",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
+    "name": "generate single tree",
+    "url": "{{baseUrl}}/generatetree/",
+    "method": "POST",
+    "sortNum": 110000,
+    "created": "2022-05-26T10:14:17.582Z",
+    "modified": "2022-05-26T10:18:49.739Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category",
+          "value": "7"
+        }
+      ]
+    },
     "auth": {
       "type": "none"
     },

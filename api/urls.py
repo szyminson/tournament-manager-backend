@@ -31,6 +31,9 @@ urlpatterns = [
     path('verifycode/', views.verify_code),
     path('emailtest/', views.emailtest),
     path('sendcode/', views.send_verification_code),
+
     path('generatetrees/', views.generate_trees),
+    path('generatetree/', views.generate_tree),
+
     path('verificationcodescapacity/', views.get_codes_capacity)
 ]
