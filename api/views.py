@@ -87,6 +87,31 @@ def emailtest(request):
     )
     return Response({'message': 'Test email sent.'})
 
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def get_codes_capacity(request):
+    """
+    Get verification codes capacity
+    """
+    # * get all verification codes
+    verification_codes = VerificationCode.objects.all()
+
+    codes_capacity = []
+
+    # * for each verification code - find number of signed participants
+    for verficiation_code in verification_codes:
+        signed_participants = len(Participant.objects.filter(
+            verification_code_id = verficiation_code.id).all())
+        club_name = verficiation_code.club.name
+        codes_capacity.append({
+            "id": verficiation_code.id,
+            "club": club_name,
+            "verification_code": verficiation_code.code,
+            "signed_participants": signed_participants,
+            "participants_limit": verficiation_code.participants_limit
+        })
+    return Response(codes_capacity)
+
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def send_verification_code(request):
