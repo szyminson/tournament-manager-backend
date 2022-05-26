@@ -59,6 +59,10 @@ class TreeSerializer(serializers.ModelSerializer):
         model = Tree
         fields = ('id', 'category', 'root_duel', 'tournament')
 
+    def to_representation(self, instance):
+        self.fields['category'] =  CategorySerializer(read_only=True)
+        return super( TreeSerializer, self).to_representation(instance)
+
 class ParticipantSerializer(serializers.ModelSerializer):
     """
     VerificationCode model serializer

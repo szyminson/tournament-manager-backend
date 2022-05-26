@@ -35,6 +35,18 @@ def generate_trees(request):
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
+def generate_tree(request):
+    category = Category.objects.get(id=request.data['category'])
+    tournament = Tournament.objects.first()
+
+    generator = TreeGenerator(category, tournament)
+    tree = generator.generate()
+    serializer = TreeSerializer(tree)
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
 def verify_code(request):
     verification_code = VerificationCode.objects.filter(
         code=request.data['code']).first()
