@@ -9,10 +9,6 @@ class TreeGenerator:
         self.tournament = tournament
         self.participants = Participant.objects.filter(category = category)
 
-        self.complements = []
-        self.arr = [1, 2]
-
-
     def divide(self, arr, depth, m):
         if len(self.complements) <= depth:
             self.complements.append(2 ** (depth + 2) + 1)
