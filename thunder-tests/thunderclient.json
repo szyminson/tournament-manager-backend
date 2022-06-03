@@ -184,9 +184,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:00:42.453Z",
-    "modified": "2022-05-02T20:01:08.463Z",
+    "modified": "2022-05-25T22:42:14.273Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -264,9 +267,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:01:24.166Z",
-    "modified": "2022-05-02T20:01:50.623Z",
+    "modified": "2022-05-26T13:18:32.342Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -306,13 +312,16 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "5c3fa28d-ef31-4f55-96ac-179de6d79fa2",
     "name": "read",
-    "url": "{{baseUrl}}/trees/5",
+    "url": "{{baseUrl}}/trees/1",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-05-02T20:01:24.168Z",
-    "modified": "2022-05-26T10:59:49.907Z",
+    "modified": "2022-05-26T13:18:53.843Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -436,9 +445,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-02T20:30:14.336Z",
-    "modified": "2022-05-02T20:30:57.171Z",
+    "modified": "2022-05-25T21:14:46.880Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -516,13 +528,16 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
     "name": "list",
-    "url": "{{baseUrl}}/clubs",
+    "url": "{{baseUrl}}/duels",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:49:54.646Z",
-    "modified": "2022-05-03T14:49:54.646Z",
+    "modified": "2022-05-26T10:11:32.023Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -572,24 +587,12 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "3e95c8e0-57a9-4eca-b9ee-0dcab8f0ab77",
     "name": "update",
-    "url": "{{baseUrl}}/duels/63/",
-    "method": "PATCH",
+    "url": "",
+    "method": "GET",
     "sortNum": 50000,
     "created": "2022-05-03T14:49:54.649Z",
-    "modified": "2022-05-26T11:30:31.536Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "formencoded",
-      "raw": "",
-      "form": [
-        {
-          "name": "winner",
-          "value": "5"
-        }
-      ]
-    },
-    "tests": []
+    "modified": "2022-05-03T14:49:54.646Z",
+    "headers": []
   },
   {
     "_id": "a5d703e5-f329-4f05-9a5f-fa3f93a72c55",
@@ -612,9 +615,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-05-03T14:51:32.986Z",
-    "modified": "2022-05-05T23:52:09.870Z",
+    "modified": "2022-05-25T21:02:01.443Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "none"
+    },
     "tests": []
   },
   {
@@ -787,11 +793,89 @@
     "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
     "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
     "name": "generate trees",
-    "url": "{{baseUrl}}/generatetrees",
-    "method": "GET",
+    "url": "{{baseUrl}}/generatetrees/",
+    "method": "POST",
     "sortNum": 100000,
     "created": "2022-05-22T11:49:11.275Z",
-    "modified": "2022-05-22T11:50:07.667Z",
+    "modified": "2022-05-26T18:43:55.479Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f8fb28c9-a1a2-4683-b0cb-32d639540c28",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "e6b0df9e-e4ed-4586-a47f-0e08822878f0",
+    "name": "code_capacity",
+    "url": "{{baseUrl}}/verificationcodescapacity/",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2022-05-25T20:58:06.765Z",
+    "modified": "2022-05-25T20:58:44.334Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  },
+  {
+    "_id": "c04fd77d-853a-4375-87b5-92704d5ff8c5",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
+    "name": "generate single tree",
+    "url": "{{baseUrl}}/generatetree/",
+    "method": "POST",
+    "sortNum": 102500,
+    "created": "2022-05-26T10:14:17.582Z",
+    "modified": "2022-05-26T18:44:02.810Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "category",
+          "value": "7"
+        }
+      ]
+    },
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  },
+  {
+    "_id": "d6dbf67c-9930-421c-b498-f79f907e6e45",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
+    "name": "get tree by category id",
+    "url": "{{baseUrl}}/gettree/6",
+    "method": "GET",
+    "sortNum": 105000,
+    "created": "2022-05-26T13:30:10.439Z",
+    "modified": "2022-05-26T13:31:36.466Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  },
+  {
+    "_id": "c120f7ea-9bcf-4d8c-b571-f58327412eff",
+    "colId": "0fa206ec-d3b2-4383-a5f9-89f75aedb884",
+    "containerId": "c37a30f2-3f08-4d22-a8cf-03addae5ed68",
+    "name": "set duel winner",
+    "url": "{{baseUrl}}/setduelwinner/6",
+    "method": "POST",
+    "sortNum": 107500,
+    "created": "2022-05-26T17:39:08.371Z",
+    "modified": "2022-05-26T17:40:51.211Z",
     "headers": [],
     "params": [],
     "auth": {

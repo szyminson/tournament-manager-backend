@@ -34,6 +34,9 @@ urlpatterns = [
 
     path('generatetrees/', views.generate_trees),
     path('generatetree/', views.generate_tree),
+    path('gettree/<int:category_id>', views.get_tree_by_category),
+
+    path('setduelwinner/<int:participant_id>', views.set_duel_winner),
 
     path('verificationcodescapacity/', views.get_codes_capacity)
 ]

@@ -74,8 +74,8 @@ class TreeSerializer(serializers.ModelSerializer):
         child_duels = duel.duel_set.all()
         children = []
         if not child_duels:
-            children.append(self.create_node_dict(duel.participant_one, []))
-            children.append(self.create_node_dict(duel.participant_two, []))
+            children.append(self.create_node_dict(duel.participant_one, [], duel.id))
+            children.append(self.create_node_dict(duel.participant_two, [], duel.id))
         else:
             if len(child_duels) < 2:
                 if duel.participant_one:
