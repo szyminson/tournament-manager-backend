@@ -38,7 +38,7 @@ class VerificationCode(models.Model):
     """
     TODO docstring
     """
-    def get_random_code(self, length = 6) -> str:
+    def get_random_code(length = 6) -> str:
         """
             Generate random code
         """
