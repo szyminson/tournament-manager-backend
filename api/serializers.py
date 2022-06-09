@@ -13,6 +13,27 @@ class ClubSerializer(serializers.ModelSerializer):
         model = Club
         fields = ('id', 'name', 'ceo', 'email')
 
+    # Data validation
+    def validate_name(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Name of the club cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('Name of the club is too long')
+        return value
+
+    def validate_ceo(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Name of CEO of the club cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('Name of CEO of the club is too long')
+        return value
+
+    def validate_email(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('E-mail of the club cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('E-mail of the club is too long')
+        return value
 
 class VerificationCodeSerializer(serializers.ModelSerializer):
     """
@@ -25,7 +46,6 @@ class VerificationCodeSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         self.fields['club'] = ClubSerializer(read_only=True)
         return super(VerificationCodeSerializer, self).to_representation(instance)
-
 
 class DuelSerializer(serializers.ModelSerializer):
     """
@@ -46,6 +66,18 @@ class TournamentSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'start_date', 'end_date',
                   'location', 'phone_number', 'email')
 
+    # Data validation
+    def validate_name(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Name of tournament cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('Name of tournament is too long')
+        return value
+
+    def validate(self, data):
+        if data['start_date'] > data['end_date']:
+            raise serializers.ValidationError('End date cannot be before start date')
+        return data
 
 class CategorySerializer(serializers.ModelSerializer):
     """
@@ -55,6 +87,20 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ('id', 'name', 'description')
 
+    # Data validation
+    def validate_name(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Name of category cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('Name of category is too long')
+        return value
+
+    def validate_description(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Category description cannot be empty')
+        if len(value) > 45:
+            raise serializers.ValidationError('Category description is too long')
+        return value
 
 class TreeSerializer(serializers.ModelSerializer):
     """
@@ -102,8 +148,6 @@ class TreeSerializer(serializers.ModelSerializer):
             "children": children,
         }
 
-
-
     def to_representation(self, instance):
         self.fields['category'] =  CategorySerializer(read_only=True)
         return super( TreeSerializer, self).to_representation(instance)
@@ -123,3 +167,20 @@ class ParticipantSerializer(serializers.ModelSerializer):
             read_only=True)
         self.fields['category'] = CategorySerializer(read_only=True)
         return super(ParticipantSerializer, self).to_representation(instance)
+
+    # Data validation
+    def validate_first_name(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('First name cannot be empty')
+        if len(value) > 30:
+            raise serializers.ValidationError('First name is too long')
+        return value
+
+    def validate_last_name(self, value):
+        if len(value) == 0:
+            raise serializers.ValidationError('Last name cannot be empty')
+        if len(value) > 30:
+            raise serializers.ValidationError('Last name is too long')
+        return value
+
+    
