@@ -138,6 +138,9 @@ class TreeSerializer(serializers.ModelSerializer):
         return f"{participant.first_name} {participant.last_name}"
 
     def create_node_dict(self, participant, children, duel_id = 0):
+        parent_duel_id = None
+        if duel_id != 0:    # * get parent duel id (needed for frontend)
+            parent_duel_id = Duel.objects.get(id=duel_id).parent_duel_id
         participant_id = 0
         if participant:
             participant_id = participant.id
@@ -146,6 +149,7 @@ class TreeSerializer(serializers.ModelSerializer):
             "duel_id": duel_id,
             "participant_id": participant_id,
             "children": children,
+            "parent_duel_id": parent_duel_id
         }
 
     def to_representation(self, instance):
@@ -183,4 +187,4 @@ class ParticipantSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Last name is too long')
         return value
 
-    
+
