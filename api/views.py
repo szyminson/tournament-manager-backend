@@ -21,7 +21,7 @@ from api.serializers import (CategorySerializer, ClubSerializer,
 from api.services import TreeGenerator
 
 @api_view(['POST'])
-@permission_classes([permissions.AllowAny])
+@permission_classes([permissions.IsAuthenticated])
 def generate_trees(request):
     categories = Category.objects.all()
     tournament = Tournament.objects.first()
@@ -109,7 +109,7 @@ def emailtest(request):
     return Response({'message': 'Test email sent.'})
 
 @api_view(['GET'])
-@permission_classes([permissions.AllowAny])
+@permission_classes([permissions.IsAuthenticated])
 def get_codes_capacity(request):
     """
     Get verification codes capacity
@@ -134,7 +134,7 @@ def get_codes_capacity(request):
     return Response(codes_capacity)
 
 @api_view(['POST'])
-@permission_classes([permissions.AllowAny])
+@permission_classes([permissions.IsAuthenticated])
 def set_duel_winner(request, participant_id, format=None):
     # find all duels (duplicates) with participant id and update winner
     duels = Duel.objects.filter(Q(participant_one = participant_id) | Q(participant_two = participant_id), winner = None).all()
@@ -173,7 +173,7 @@ def clear_all_winners(request, participant_id, format=None):
 
 
 @api_view(['POST'])
-@permission_classes([permissions.AllowAny])
+@permission_classes([permissions.IsAuthenticated])
 def send_verification_code(request):
     """
     TODO docstring

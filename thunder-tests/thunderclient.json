@@ -797,11 +797,20 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2022-05-22T11:49:11.275Z",
-    "modified": "2022-05-26T18:43:55.479Z",
+    "modified": "2022-06-09T18:58:46.866Z",
     "headers": [],
     "params": [],
     "auth": {
-      "type": "none"
+      "type": "oauth2",
+      "oauth2": {
+        "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0ODAxNjc5LCJpYXQiOjE2NTQ4MDEwNzksImp0aSI6ImY0NjMyMjY3OWRiZjQxODU5YTg5OTgxY2Q3MDg5ODVlIiwidXNlcl9pZCI6Mn0.bguThidnATlJBwtHrLJ2hn4A8564W8Sy1AhtDm9iGfU",
+        "grantType": "authorization_code",
+        "callbackUrl": "https://www.thunderclient.com/oauth/callback",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
     },
     "tests": []
   },
