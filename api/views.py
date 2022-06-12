@@ -226,8 +226,12 @@ class ParticipantList(APIView):
         """
         serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(request.data, status=status.HTTP_201_CREATED)
+            verification_code = VerificationCode.objects.get(id=request.data['verification_code'])
+            existing_participant_number = verification_code.participant_set.count()
+            if verification_code.participants_limit > existing_participant_number:
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'msg': 'Participant limit exceeded for given verification code.'}, status=status.HTTP_403_FORBIDDEN)
         else:
             return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
